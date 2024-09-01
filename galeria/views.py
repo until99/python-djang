@@ -1,10 +1,11 @@
 from django.shortcuts import render
+from galeria.models import Fotografia
 
-# Create your views here.
-from django.shortcuts import render
 
 def index(request):
-        return render(request, 'galeria/index.html')
+    fotografias = Fotografia.objects.all()
+    return render(request, "galeria/index.html", {"cards": fotografias})
+
 
 def imagem(request):
-        return render(request, 'galeria/imagem.html')
+    return render(request, "galeria/imagem.html")
